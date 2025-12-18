@@ -6,9 +6,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileJourneyOpen, setMobileJourneyOpen] = useState(false);
-  const [activeMenu, setActiveMenu] = useState("home"); // ⭐ active state
-
-  const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+  const [activeMenu, setActiveMenu] = useState("home");
 
   const journeyItems = [
     { label: "Theory 01 : Octa", id: "theory-1" },
@@ -29,15 +27,15 @@ const Navbar = () => {
         <div className="flex h-16 items-center justify-between relative">
           {/* LOGO */}
           <div className="shrink-0">
-            <img src={Logo} className="h-27 w-auto" alt="demo" />
+            <img src={Logo} className="h-27 w-auto" alt="Pixels Logo" />
           </div>
 
-          {/* DESKTOP NAV */}
+          {/* ================= DESKTOP NAV ================= */}
           <div className="font-smallest-pixel absolute left-1/2 -translate-x-1/2 hidden sm:flex space-x-4 items-center whitespace-nowrap">
             <a
               href="#home"
               onClick={() => setActiveMenu("home")}
-              className={`${baseBtn} text-black ${hoverBtn} ${
+              className={`${baseBtn} ${hoverBtn} ${
                 activeMenu === "home" ? activeBtn : ""
               }`}
             >
@@ -47,26 +45,26 @@ const Navbar = () => {
             <a
               href="#about"
               onClick={() => setActiveMenu("about")}
-              className={`${baseBtn} text-black ${hoverBtn} ${
+              className={`${baseBtn} ${hoverBtn} ${
                 activeMenu === "about" ? activeBtn : ""
               }`}
             >
               About Pixels
             </a>
 
-            {/* DESKTOP DROPDOWN */}
+            {/* Desktop Journey Dropdown */}
             <Menu as="div" className="relative">
               {({ open }) => (
                 <>
                   <Menu.Button
                     onClick={() => setActiveMenu("journey")}
-                    className={`${baseBtn} inline-flex items-center text-black ${hoverBtn} ${
+                    className={`${baseBtn} inline-flex items-center ${hoverBtn} ${
                       activeMenu === "journey" ? activeBtn : ""
                     }`}
                   >
                     Journey Map
                     <ChevronDownIcon
-                      className={`ml-1 h-4 w-4 transition-transform duration-200 ${
+                      className={`ml-1 h-4 w-4 transition-transform ${
                         open ? "rotate-180" : ""
                       }`}
                     />
@@ -81,21 +79,18 @@ const Navbar = () => {
                     leaveFrom="opacity-100 scale-100"
                     leaveTo="opacity-0 scale-95"
                   >
-                    <Menu.Items className="absolute left-1/2 -translate-x-1/2 mt-2 min-w-[260px] w-max bg-white shadow-lg rounded-md py-2 z-50">
+                    <Menu.Items className="absolute left-1/2 -translate-x-1/2 mt-2 min-w-[260px] bg-white rounded-md shadow-lg py-2 z-50">
                       {journeyItems.map((item) => (
                         <Menu.Item key={item.id}>
                           {({ active }) => (
                             <a
                               href={`#${item.id}`}
                               onClick={() => setActiveMenu(item.id)}
-                              className={`block px-4 py-2 text-sm whitespace-nowrap transition
-                                ${
-                                  activeMenu === item.id
-                                    ? "bg-mintGreen/40 font-bold"
-                                    : active
-                                    ? "bg-gray-100"
-                                    : ""
-                                }`}
+                              className={`block px-4 py-2 text-sm transition ${
+                                active
+                                  ? "bg-mintGreen/30"
+                                  : "hover:bg-gray-100"
+                              }`}
                             >
                               {item.label}
                             </a>
@@ -111,7 +106,7 @@ const Navbar = () => {
             <a
               href="#stage"
               onClick={() => setActiveMenu("stage")}
-              className={`${baseBtn} text-black ${hoverBtn} ${
+              className={`${baseBtn} ${hoverBtn} ${
                 activeMenu === "stage" ? activeBtn : ""
               }`}
             >
@@ -121,7 +116,7 @@ const Navbar = () => {
             <a
               href="#followpixels"
               onClick={() => setActiveMenu("followpixels")}
-              className={`${baseBtn} text-black ${hoverBtn} ${
+              className={`${baseBtn} ${hoverBtn} ${
                 activeMenu === "followpixels" ? activeBtn : ""
               }`}
             >
@@ -129,49 +124,58 @@ const Navbar = () => {
             </a>
           </div>
 
-          {/* MOBILE HAMBURGER */}
-          <div className="sm:hidden flex items-center">
+          {/* ================= MOBILE HAMBURGER ================= */}
+          <div className="sm:hidden">
             <button
-              onClick={toggleMobileMenu}
-              className="p-2 rounded-md hover:bg-white/20 text-black"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-md hover:bg-white/20"
             >
-              <svg className="h-6 w-6" fill="none" stroke="currentColor">
-                <path
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
+              ☰
             </button>
           </div>
         </div>
 
-        {/* MOBILE MENU */}
+        {/* ================= MOBILE MENU ================= */}
         {mobileMenuOpen && (
-          <div className="sm:hidden mt-2 space-y-1 bg-mintGreen/50 p-2 rounded-md">
-            {["home", "about", "stage", "followpixels"].map((key) => (
-              <a
-                key={key}
-                href={`#${key}`}
-                onClick={() => {
-                  setActiveMenu(key);
-                  setMobileMenuOpen(false);
-                }}
-                className={`block px-3 py-2 rounded-md transition ${
-                  activeMenu === key
-                    ? "bg-white/40 font-bold"
-                    : "hover:bg-white/20"
+          <div className="sm:hidden mt-2 bg-mintGreen/60 rounded-md p-3 space-y-2 font-press">
+            <a href="#home" className="block" onClick={() => setMobileMenuOpen(false)}>Home</a>
+            <a href="#about" className="block" onClick={() => setMobileMenuOpen(false)}>About Pixels</a>
+
+            {/* Mobile Journey Dropdown */}
+            <button
+              onClick={() => setMobileJourneyOpen(!mobileJourneyOpen)}
+              className="w-full flex justify-between items-center"
+            >
+              <span>Journey Map</span>
+              <span
+                className={`transition-transform ${
+                  mobileJourneyOpen ? "rotate-180" : ""
                 }`}
               >
-                {key === "home"
-                  ? "Home"
-                  : key === "about"
-                  ? "About Pixels"
-                  : key === "stage"
-                  ? "Pixels on Stage"
-                  : "FollowPixels"}
-              </a>
-            ))}
+                ▼
+              </span>
+            </button>
+
+            {mobileJourneyOpen && (
+              <div className="pl-4 space-y-1 text-sm">
+                {journeyItems.map((item) => (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    onClick={() => {
+                      setMobileJourneyOpen(false);
+                      setMobileMenuOpen(false);
+                    }}
+                    className="block hover:underline"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            )}
+
+            <a href="#stage" className="block" onClick={() => setMobileMenuOpen(false)}>Pixels on Stage</a>
+            <a href="#followpixels" className="block" onClick={() => setMobileMenuOpen(false)}>Follow Pixels</a>
           </div>
         )}
       </div>
@@ -179,4 +183,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;
