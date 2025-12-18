@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+/* ------------- FONT IMPORT ------------- */
+@font-face {
+  font-family: "PressStart2P";
+  src: url("./assets/font/PressStart2P-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Kanit";
+  src: url("./assets/font/Kanit-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SmallestPixel";
+  src: url("./assets/font/smallest_pixel-7.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ------------- TAILWIND THEME ------------- */
+@theme {
+  --font-press: "PressStart2P", monospace;
+  --font-kanit: "Kanit", sans-serif;
+  --font-smallest-pixel: "SmallestPixel", monospace;
+
+  --color-mintGreen: #A7F7E7;
+}
+
+/* ------------- UTILITY CLASS ------------- */
+.font-press {
+  font-family: var(--font-press);
+}
+
+.font-kanit {
+  font-family: var(--font-kanit);
+}
+
+.font-smallest-pixel {
+  font-family: var(--font-smallest-pixel);
+}
+.pixelated {
+  image-rendering: pixelated;
+}
