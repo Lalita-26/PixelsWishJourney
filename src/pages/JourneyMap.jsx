@@ -100,7 +100,7 @@ const timelineNemuNemu = [
   {
     year: "8 May 2025",
     title: "[Concept Video] Pixels Ver.",
-    image: nemuPixel,
+    image: nemuPixels,
   },
   { year: "11 May 2025", title: "งานเปิดตัว single 4", image: muchuu },
   { year: "13 June 2025", title: "[Official Music Video]", image: nemuMV },
