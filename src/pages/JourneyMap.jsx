@@ -1,6 +1,8 @@
 import Timeline from "../components/Timeline";
 
-/* ---------------- BACKGROUNDS ---------------- */
+/* -------------------------------------------------------
+   BACKGROUND IMAGES
+------------------------------------------------------- */
 import backgroundOcta from "../assets/Octa.png";
 import background90Days from "../assets/90days-bg.png";
 import backgroundBokuNoMirai from "../assets/boku-no-mirai.png";
@@ -56,6 +58,31 @@ const timeline90Days = [
 ];
 
 const timelineStarCat = [
+  {
+    year: "21 October 2024",
+    title: "วันประกาศงาน Mayonaka no Mirai",
+    image: starcatMain,
+  },
+  {
+    year: "22 October 2024",
+    title: "Mirai Mirai 3rd Theory “Star☆Cat”",
+    image: starcatTheory,
+  },
+  {
+    year: "26 October 2024",
+    title: "งานเปิดตัว single 3 Mayonaka no Mirai",
+    image: mayonaka,
+  },
+  {
+    year: "5 November 2024",
+    title: "[Music Video Teaser] Star☆Cat (Pixels Ver.)",
+    image: starcatPixel,
+  },
+  {
+    year: "7 November 2024",
+    title: "[Official Music Video] Star☆Cat",
+    image: starcatMV,
+  },
   { year: "21 Oct 2024", title: "Announcement", image: starcatMain },
   { year: "22 Oct 2024", title: "3rd Theory", image: starcatTheory },
   { year: "26 Oct 2024", title: "Single Launch", image: mayonaka },
@@ -64,20 +91,32 @@ const timelineStarCat = [
 ];
 
 const timelineNemuNemu = [
-  { year: "5 May 2025", title: "Announcement", image: nemuEvent },
-  { year: "6 May 2025", title: "Single Concept", image: nemurenaiConcept },
-  { year: "8 May 2025", title: "Pixels Video", image: nemuPixels },
-  { year: "11 May 2025", title: "Single Launch", image: muchuu },
-  { year: "13 Jun 2025", title: "Official MV", image: nemuMV },
+  { year: "5 May 2025", title: "วันประกาศงาน single 4", image: nemuEvent },
+  {
+    year: "6 May 2025",
+    title: "4th Single : Nemu Nemu Nemurenai",
+    image: nemurenaiConcept,
+  },
+  {
+    year: "8 May 2025",
+    title: "[Concept Video] Pixels Ver.",
+    image: nemuPixel,
+  },
+  { year: "11 May 2025", title: "งานเปิดตัว single 4", image: muchuu },
+  { year: "13 June 2025", title: "[Official Music Video]", image: nemuMV },
 ];
 
 const timelineBokunomirai = [
-  { year: "18 Aug 2025", title: "Announcement", image: bokuEvent },
-  { year: "20 Aug 2025", title: "Costume (Minute)", image: bokuMinute },
-  { year: "20 Aug 2025", title: "Costume (Hour)", image: bokuHour },
-  { year: "23 Aug 2025", title: "Pixels Video", image: bokuPixel },
-  { year: "24 Aug 2025", title: "Official MV", image: bokuMV },
-  { year: "24 Aug 2025", title: "Debut Event", image: bokuDebut },
+  { year: "18 Aug 2025", title: "วันประกาศงาน Single 5", image: bokuEvent },
+  { year: "20 Aug 2025", title: "Costume (Minutes)", image: bokuMinute },
+  { year: "20 Aug 2025", title: "Costume (Hours)", image: bokuHour },
+  {
+    year: "23 Aug 2025",
+    title: "[Concept Video] Pixels Ver.",
+    image: bokuPixel,
+  },
+  { year: "24 Aug 2025", title: "Music Video", image: bokuMV },
+  { year: "24 Aug 2025", title: "งานเปิดตัว Single 5", image: bokuDebut },
 ];
 
 const timelineBlueValentine = [
@@ -100,7 +139,7 @@ const theoryList = [
     title: "Theory 02 — 90Days",
     background: background90Days,
     color: "black",
-    titleColor: "text-pink-200",
+    titleColor: "text-black",
     timeline: timeline90Days,
   },
   {
@@ -145,10 +184,16 @@ const JourneyMap = () => {
       {theoryList.map((theory) => (
         <section
           key={theory.id}
-          className="min-h-screen pt-24 px-4 bg-cover bg-top"
-          style={{ backgroundImage: `url(${theory.background})` }}
+          className="relative min-h-screen pt-24 px-4"
+          style={{
+            backgroundImage: `url(${theory.background})`,
+            backgroundSize: "cover",
+            backgroundPosition: "top center",
+          }}
         >
-          <h2 className={`text-center text-3xl mb-12 font-press ${theory.titleColor}`}>
+          <h2
+            className={`text-center text-3xl font-press mb-12 ${theory.titleColor}`}
+          >
             {theory.title}
           </h2>
 
