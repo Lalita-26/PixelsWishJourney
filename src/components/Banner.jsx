@@ -13,31 +13,8 @@ const words = [
 ];
 
 const Banner = () => {
-  const [timeLeft, setTimeLeft] = useState({});
   const [index, setIndex] = useState(0);
   const [animate, setAnimate] = useState(true);
-
-  /* ================= COUNTDOWN ================= */
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const now = new Date();
-      const diff = TARGET_DATE - now;
-
-      if (diff <= 0) {
-        clearInterval(timer);
-        return;
-      }
-
-      setTimeLeft({
-        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((diff / (1000 * 60)) % 60),
-        seconds: Math.floor((diff / 1000) % 60),
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
 
   /* ================= TEXT ANIMATION ================= */
   useEffect(() => {
@@ -78,8 +55,6 @@ const Banner = () => {
             text-sm md:text-base
           "
         >
-          {timeLeft.days ?? "00"}d : {timeLeft.hours ?? "00"}h :{" "}
-          {timeLeft.minutes ?? "00"}m : {timeLeft.seconds ?? "00"}s
         </div>
 
         {/* ================= ANIMATED TEXT ================= */}

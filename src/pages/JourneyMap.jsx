@@ -208,6 +208,7 @@ const JourneyMap = () => {
       {theoryList.map((theory) => (
         <section
           key={theory.id}
+           id={`theory-${theory.id}`}
           className="relative min-h-screen pt-24 px-4"
           style={{
             backgroundImage: `url(${theory.background})`,
