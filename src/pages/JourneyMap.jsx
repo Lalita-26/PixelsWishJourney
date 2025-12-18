@@ -5,20 +5,23 @@ import Timeline from "../components/Timeline";
 ------------------------------------------------------- */
 import backgroundOcta from "../assets/Octa.png";
 import background90Days from "../assets/90days-bg.png";
+import backgroundStarCat from "../assets/image-timeline/Star-Cat.png";
+import backgroundNemuNemu from "../assets/image-timeline/NemuNemu.png";
 import backgroundBokuNoMirai from "../assets/boku-no-mirai.png";
-import backgroundBlueValentine from "../assets/blue-valentine.png";
 
 /* ---------------- TIMELINE IMAGES ---------------- */
 // OCTA
-import octaSpoil from "../assets/image-timeline/octa-spoil.jpg";
+import MugenSpoil from "../assets/image-timeline/mugen-spoil.jpg";
 import pixelsProfiles from "../assets/image-timeline/pixels-profiles.jpg";
 import jxExpo from "../assets/image-timeline/jx-expo-2024.jpg";
-import mugenSpoil from "../assets/image-timeline/mugen-spoil.jpg";
-import octaSpill from "../assets/image-timeline/octa-spoil.jpg";
+import mugenEvent from "../assets/image-timeline/mugen-event.jpg";
+import octaSpoil from "../assets/image-timeline/octa-spoil.jpg";
 import mugenDebut from "../assets/image-timeline/mugen-debut.jpg";
 
 // 90 DAYS
 import renAi from "../assets/image-timeline/ren-ai.jpg";
+import Spoil90Days from "../assets/image-timeline/90-days.jpg";
+import RenAinoMirai from "../assets/image-timeline/Ren-Ai-no-Mirai.jpg";
 
 // STAR CAT
 import starcatMain from "../assets/image-timeline/starcat-main.jpg";
@@ -45,16 +48,18 @@ import bokuDebut from "../assets/image-timeline/boku-debut.jpg";
 /* ---------------- TIMELINE DATA ---------------- */
 
 const timelineOcta = [
-  { year: "30–31 Jan 2024", title: "สปอยเมมเบอร์", image: octaSpoil },
-  { year: "01 Feb 2024", title: "เปิดตัววันแรก", image: pixelsProfiles },
+  { year: "30–31 Jan 2024", title: "สปอยเมมเบอร์", image: MugenSpoil },
+  { year: "01 Feb 2024", title: "⁺◟ ∞ pixels 「ピクセル」 ⋆⑅˚₊It’s me pixels* #MiraiMirai 27/12 | color 167, 247, 231สวัสดี Pixels(พิกเซล) #Mirai Mirai ค่า!,เรามาจากอนาคตล่ะ ยินดีที่ได้รู้จักนะ! ", image: pixelsProfiles },
   { year: "04 Feb 2024", title: "Japan EXPO ครั้งแรก", image: jxExpo },
-  { year: "19 Mar 2024", title: "First Theory Begins", image: mugenSpoil },
-  { year: "27 Mar 2024", title: "1st Theory", image: octaSpill },
-  { year: "30 Mar 2024", title: "Debut", image: mugenDebut },
+  { year: "19 Mar 3024", title: "When the first theory has begun.. ↺ ประกาศวันที่ได้ Debut !", image: mugenEvent },
+  { year: "27 Mar 2024", title: "1st Theory ทุกย่างก้าวของเรา มุ่งไปข้างหน้าอย่างมีจุดมุ่งหมาย เสียงร้องจะนำทางเราให้เดินไปข้างหน้า สู่อนาคตที่ไม่มีที่สิ้นสุด ", image: octaSpoil },
+  { year: "30 Mar 2024", title: "วัน Debut ! Mugen Na Mirai  วันที่เปล่งประกายมากที่สุด สนุก ดีใจ และขอบคุณ :3", image: mugenDebut },
 ];
 
 const timeline90Days = [
-  { year: "03 June 2024", title: "Ren Ai no Mirai", image: renAi },
+  { year: "03 June 2024", title: "Ren Ai no Miraiวันประกาศงาน Ren Ai no Mirai อีเว้นท์ประจำSingle 2 ของพวกเรา Mirai Mirai", image: renAi },
+  { year: "13 June 2024", title: "สปอยเมมเบอร์ single 2", image: Spoil90Days },
+  { year: "15 June 2024", title: "งานเปิดตัว single 2 Ren Ai no Mirai", image: RenAinoMirai },
 ];
 
 const timelineStarCat = [
@@ -83,27 +88,31 @@ const timelineStarCat = [
     title: "[Official Music Video] Star☆Cat",
     image: starcatMV,
   },
-  { year: "21 Oct 2024", title: "Announcement", image: starcatMain },
-  { year: "22 Oct 2024", title: "3rd Theory", image: starcatTheory },
-  { year: "26 Oct 2024", title: "Single Launch", image: mayonaka },
-  { year: "5 Nov 2024", title: "Teaser (Pixels)", image: starcatPixel },
-  { year: "7 Nov 2024", title: "Official MV", image: starcatMV },
+ 
 ];
 
 const timelineNemuNemu = [
-  { year: "5 May 2025", title: "วันประกาศงาน single 4", image: nemuEvent },
+  { year: "5 May 2025", title: "วันประกาศงาน  Mayonaka no Mirai อีเว้นท์ประจำ single 4 MUCHUU NO MIRAIi", image: nemuEvent },
   {
     year: "6 May 2025",
-    title: "4th Single : Nemu Nemu Nemurenai",
-    image: nemurenaiConcept,
+    title: "4th Single : Mirai Mirai 4th Single : Nemu Nemu Nemurenai ที่มาพร้อมคอนเซปต์ 401 mg. พยายามนอนให้หลับนะ (っ˕ -｡)ᶻ 𝗓 𐰁",
+    image: nemuPixels,
   },
   {
     year: "8 May 2025",
     title: "[Concept Video] Pixels Ver.",
-    image: nemuPixels,
+    image: nemurenaiConcept,
   },
-  { year: "11 May 2025", title: "งานเปิดตัว single 4", image: muchuu },
-  { year: "13 June 2025", title: "[Official Music Video]", image: nemuMV },
+  {
+    year: "11 May 2025",
+    title: "งานเปิดตัว single 4 MUCHUU NO MIRAI",
+    image: muchuu,
+  },
+  {
+    year: "13 June 2025",
+    title: "[Official Music Video] นอนไม่ค่อยหลับ (Nemu Nemu Nemurenai) - Mirai Mirai",
+    image: nemuMV,
+  },
 ];
 
 const timelineBokunomirai = [
@@ -123,7 +132,6 @@ const timelineBlueValentine = [
   { year: "Special", title: "Blue Valentine", image: mugenDebut },
 ];
 
-/* ---------------- THEORY LIST ---------------- */
 
 const theoryList = [
   {
@@ -145,17 +153,17 @@ const theoryList = [
   {
     id: 3,
     title: "Theory 03 — Star☆Cat",
-    background: starcatMain,
+    background: backgroundStarCat,
     color: "amber",
     titleColor: "text-yellow-300",
     timeline: timelineStarCat,
   },
   {
     id: 4,
-    title: "Theory 04 — Nemu Nemu",
-    background: nemuEvent,
+    title: "Theory 04 — Nemu Nemu Nemurenai",
+    background: backgroundNemuNemu,
     color: "black",
-    titleColor: "text-cyan-200",
+    titleColor: "text-black",
     timeline: timelineNemuNemu,
   },
   {
@@ -165,15 +173,7 @@ const theoryList = [
     color: "white",
     titleColor: "text-white",
     timeline: timelineBokunomirai,
-  },
-  {
-    id: 6,
-    title: "Special — Blue Valentine",
-    background: backgroundBlueValentine,
-    color: "white",
-    titleColor: "text-blue-200",
-    timeline: timelineBlueValentine,
-  },
+  }
 ];
 
 /* ---------------- COMPONENT ---------------- */

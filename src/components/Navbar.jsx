@@ -1,4 +1,4 @@
-import Logo from "../assets/logo.png";
+import Logo from "../assets/Pixels-wishjourney-logo.png";
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
@@ -29,7 +29,7 @@ const Navbar = () => {
         <div className="flex h-16 items-center justify-between relative">
           {/* LOGO */}
           <div className="shrink-0">
-            <img src={Logo} className="h-20 w-auto" alt="demo" />
+            <img src={Logo} className="h-27 w-auto" alt="demo" />
           </div>
 
           {/* DESKTOP NAV */}

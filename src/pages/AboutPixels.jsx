@@ -165,7 +165,7 @@ const AboutPixels = () => {
 
             <p className={fontByLang("แมว หนังระทึกขวัญ")}>
               • <b className="font-smallest-pixel">Like :</b> แมว /
-              หนังระทึกขวัญ,สืบสวน / พิซซ่า / ชอบกินแป้ง ขนม นมสดปั่น
+              หนังระทึกขวัญ,สืบสวน / พิซซ่า / ชอบกินแป้ง / ขนม / นมสดปั่น
             </p>
 
             <p className={fontByLang("Color")}>

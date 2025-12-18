@@ -3,7 +3,14 @@ import MyImage from "../assets/Backgroud day.jpg";
 
 const TARGET_DATE = new Date("2025-12-27T00:00:00");
 
-const words = ["Lovely", "Sweet", "Happy", "Cute", "Wonderful"];
+/* ================= WORD + COLOR ================= */
+const words = [
+  { text: "Lovely", color: "text-pink-500" },
+  { text: "Sweet", color: "text-rose-400" },
+  { text: "Happy", color: "text-yellow-400" },
+  { text: "Joyful", color: "text-orange-400" },
+  { text: "Pixels", color: "text-mintGreen" },
+];
 
 const Banner = () => {
   const [timeLeft, setTimeLeft] = useState({});
@@ -48,8 +55,9 @@ const Banner = () => {
 
   return (
     <section className="w-full h-screen relative overflow-hidden">
-      {/* Background */}
+      {/* ================= BACKGROUND ================= */}
       <img
+        id="home"
         src={MyImage}
         alt="banner"
         className="absolute inset-0 w-full h-full object-cover object-center"
@@ -61,15 +69,27 @@ const Banner = () => {
       {/* ================= CONTENT ================= */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 gap-6">
 
-        {/* Countdown */}
-        <div className="bg-white/70 backdrop-blur-sm px-4 py-2 rounded-md font-press text-xs sm:text-sm">
+        {/* ================= COUNTDOWN ================= */}
+        <div
+          className="
+            bg-white/70 backdrop-blur-sm
+            px-4 py-1.5 rounded-md
+            font-press
+            text-sm md:text-base
+          "
+        >
           {timeLeft.days ?? "00"}d : {timeLeft.hours ?? "00"}h :{" "}
           {timeLeft.minutes ?? "00"}m : {timeLeft.seconds ?? "00"}s
         </div>
 
-        {/* Animated Text */}
-        <div className="flex items-center gap-3 text-black font-bold leading-none
-                        text-3xl sm:text-5xl md:text-6xl">
+        {/* ================= ANIMATED TEXT ================= */}
+        <div
+          className="
+            flex items-center gap-3
+            font-bold text-black leading-none
+            text-3xl sm:text-5xl md:text-6xl
+          "
+        >
           <span>Have A</span>
 
           {/* Fixed width animated word */}
@@ -77,12 +97,16 @@ const Banner = () => {
             <span
               className={`
                 absolute left-1/2 -translate-x-1/2
-                text-pink-500
+                ${words[index].color}
                 transition-all duration-500 ease-out
-                ${animate ? "translate-y-0 opacity-100" : "-translate-y-6 opacity-0"}
+                ${
+                  animate
+                    ? "translate-y-0 opacity-100"
+                    : "-translate-y-6 opacity-0"
+                }
               `}
             >
-              {words[index]}
+              {words[index].text}
             </span>
           </span>
 
