@@ -22,6 +22,7 @@ import mugenDebut from "../assets/image-timeline/mugen-debut.jpg";
 import renAi from "../assets/image-timeline/ren-ai.jpg";
 import Spoil90Days from "../assets/image-timeline/90-days.jpg";
 import RenAinoMirai from "../assets/image-timeline/Ren-Ai-no-Mirai.jpg";
+import Mv90Days from "../assets/image-timeline/90-Days-mv.jpg";
 
 // STAR CAT
 import starcatMain from "../assets/image-timeline/starcat-main.jpg";
@@ -60,6 +61,7 @@ const timeline90Days = [
   { year: "03 June 2024", title: "Ren Ai no Miraiวันประกาศงาน Ren Ai no Mirai อีเว้นท์ประจำSingle 2 ของพวกเรา Mirai Mirai", image: renAi },
   { year: "13 June 2024", title: "สปอยเมมเบอร์ single 2", image: Spoil90Days },
   { year: "15 June 2024", title: "งานเปิดตัว single 2 Ren Ai no Mirai", image: RenAinoMirai },
+  { year: "19 Auguest 2024", title: "[Official Music Video] 90 Days - Mirai Mirai", image: Mv90Days },
 ];
 
 const timelineStarCat = [
@@ -117,8 +119,8 @@ const timelineNemuNemu = [
 
 const timelineBokunomirai = [
   { year: "18 Aug 2025", title: "วันประกาศงาน Single 5", image: bokuEvent },
-  { year: "20 Aug 2025", title: "Costume (Minutes)", image: bokuMinute },
-  { year: "20 Aug 2025", title: "Costume (Hours)", image: bokuHour },
+  { year: "20 Aug 2025", title: "Mirai Mirai 5th Single Costume (Minutes Version)", image: bokuMinute },
+  { year: "20 Aug 2025", title: "Mirai Mirai 5th Single Costume (Hours Version)", image: bokuHour },
   {
     year: "23 Aug 2025",
     title: "[Concept Video] Pixels Ver.",
@@ -128,9 +130,6 @@ const timelineBokunomirai = [
   { year: "24 Aug 2025", title: "งานเปิดตัว Single 5", image: bokuDebut },
 ];
 
-const timelineBlueValentine = [
-  { year: "Special", title: "Blue Valentine", image: mugenDebut },
-];
 
 
 const theoryList = [
@@ -181,6 +180,31 @@ const theoryList = [
 const JourneyMap = () => {
   return (
     <div className="w-full">
+      {/* 🌟 HEADER SECTION */}
+      <div className="relative bg-linear-to-b from-[#b3f7f0] to-[#eafffb] py-12">
+        <h1
+          className="
+            font-press
+            text-2xl sm:text-5xl
+            text-center
+            text-[#003c3c]
+            drop-shadow-[3px_3px_0px_rgba(0,0,0,0.25)]
+            tracking-widest
+          "
+        >
+          Journey Map for Pixels
+        </h1>
+
+        {/* Pixel Divider */}
+        <div className="mt-6 flex justify-center">
+          <div className="h-2 w-40 bg-[#004d40] rounded-sm shadow-inner"></div>
+        </div>
+
+        {/* Subtitle */}
+        <p className="mt-4 text-center text-sm sm:text-base font-press text-[#00695c]">
+          A timeline of every step, memory, and sparkle ✦
+        </p>
+      </div>
       {theoryList.map((theory) => (
         <section
           key={theory.id}
