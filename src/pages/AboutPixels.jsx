@@ -159,8 +159,8 @@ const AboutPixels = () => {
               • <b>Date of birth :</b> 27 December
             </p>
 
-            <p className={fontByLang("กรุงเทพมหานคร +1")}>
-              • <b className="font-smallest-pixel">Province :</b> กรุงเทพมหานคร
+            <p className={fontByLang("กรุงเทพมหานคร")}>
+              • <b className="font-smallest-pixel">Province :</b> กรุงเทพมหานคร+1
             </p>
 
             <p className={fontByLang("แมว หนังระทึกขวัญ")}>
