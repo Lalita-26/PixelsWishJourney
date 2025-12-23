@@ -3,38 +3,46 @@ import { motion } from "framer-motion";
 
 const videos = [
   {
-    id: "yieO5yzVxUc",
-    title: "Octa - Mirai Mirai",
-    thumbnail: "https://img.youtube.com/vi/yieO5yzVxUc/hqdefault.jpg",
+    id: "1SwFVCy8IIs",
+    title:
+      "CAT VACATION พิกเซลซ่า พาย้อนวัย: ไปส่องชีวิตอันเรียบง่ายในรั้วมหา‘ลัยของพิกเจ้วกัน",
+    thumbnail: "https://img.youtube.com/vi/1SwFVCy8IIs/hqdefault.jpg",
   },
   {
-    id: "6bK-I1o5w5Q",
-    title: "90 Days - Mirai Mirai",
-    thumbnail: "https://img.youtube.com/vi/6bK-I1o5w5Q/hqdefault.jpg",
+    id: "y9L0GVUmktg",
+    title: "Mirai Mirai 'Octa' (Performance Ver.)",
+    thumbnail: "https://img.youtube.com/vi/y9L0GVUmktg/hqdefault.jpg",
   },
   {
-    id: "OU0EDXKjb_0",
-    title: "Star☆Cat - Mirai Mirai",
-    thumbnail: "https://img.youtube.com/vi/OU0EDXKjb_0/hqdefault.jpg",
+    id: "jkLg8Wp36mk",
+    title: "[Dance Performance] 90 Days - Mirai Mirai",
+    thumbnail: "https://img.youtube.com/vi/jkLg8Wp36mk/hqdefault.jpg",
   },
   {
-    id: "Z6ih8vB83Yc",
-    title: "นอนไม่ค่อยหลับ (Nemu Nemu Nemurenai) - Mirai Mirai",
-    thumbnail: "https://img.youtube.com/vi/Z6ih8vB83Yc/hqdefault.jpg",
+    id: "HSxd9BhaU9Q",
+    title: "[SPECIAL VIDEO] Mirai Mirai - Star☆Cat (Moving Ver.)",
+    thumbnail: "https://img.youtube.com/vi/HSxd9BhaU9Q/hqdefault.jpg",
   },
   {
-    id: "QUucqAZt9Wc",
-    title: "10,000 ชั่วโมง (Boku no …) - Mirai Mirai",
-    thumbnail: "https://img.youtube.com/vi/QUucqAZt9Wc/hqdefault.jpg",
+    id: "TYD96xoAK68",
+    title:
+      "Mirai Mirai - 'นอนไม่ค่อยหลับ (Nemu Nemu Nemurenai)' [Japanese ver.] (Choreography Practice Video)",
+    thumbnail: "https://img.youtube.com/vi/TYD96xoAK68/hqdefault.jpg",
   },
   {
-    id: "iO1iuQB6gpI",
-    title: "อยู่คนเดียวดีแล้ว - Mirai Mirai (Prod. by Jurassic.Pew)",
-    thumbnail: "https://img.youtube.com/vi/iO1iuQB6gpI/hqdefault.jpg",
+    id: "uJvfhfM6Qzo",
+    title:
+      "Mirai Mirai - ‘10,000 ชั่วโมง (Boku no …)’ (Choreography Practice Video)",
+    thumbnail: "https://img.youtube.com/vi/uJvfhfM6Qzo/hqdefault.jpg",
+  },
+  {
+    id: "UGqNOnn2IBU",
+    title: "Mirai Mirai - 'อยู่คนเดียวดีแล้ว' (Choreography Practice Video)",
+    thumbnail: "https://img.youtube.com/vi/UGqNOnn2IBU/hqdefault.jpg",
   },
 ];
 
-// 🔍 เช็คว่ามีภาษาไทยไหม
+// 🔍 เช็คภาษาไทย
 const isThaiText = (text) => /[ก-๙]/.test(text);
 
 const container = {
@@ -42,11 +50,7 @@ const container = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut",
-      staggerChildren: 0.12,
-    },
+    transition: { duration: 0.8, ease: "easeOut", staggerChildren: 0.12 },
   },
 };
 
@@ -59,73 +63,83 @@ const Highlight = () => {
   const [currentVideo, setCurrentVideo] = useState(videos[0]);
 
   return (
-    <motion.div
+    <motion.section
       variants={container}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      className="max-w-6xl mx-auto px-4 py-10"
+      className="
+        relative
+        max-w-6xl
+        mx-auto
+        px-4
+        py-16
+        rounded-3xl
+        bg-[#f3faf8]
+        border-4
+        border-dashed
+        border-[#004d40]/40
+      "
     >
       {/* Title */}
       <motion.h1
         variants={item}
         className="
+          relative
+          z-10
           font-press
-          sm:text-4xl
           text-2xl
+          sm:text-4xl
           text-[#004d40]
           tracking-widest
-          mb-8
+          mb-10
           flex
           items-center
           gap-4
         "
       >
-        Hightlight
-        <span className="flex-1 h-1 bg-[#004d40]/40"></span>
+        Highlight
+        <span className="flex-1 h-1 bg-[#004d40]/30"></span>
       </motion.h1>
 
-      <div className="flex flex-col lg:flex-row gap-8">
-        {/* LEFT: Main Video */}
+      <div className="relative z-10 flex flex-col lg:flex-row gap-8">
+        {/* LEFT: Featured Video */}
         <motion.div
           variants={item}
           className="
+            relative
             w-full
             lg:w-2/3
             bg-white
             p-4
-            rounded-xl
+            rounded-2xl
             border-4
             border-[#004d40]
-            shadow-[8px_8px_0px_#004d40]
+            shadow-[10px_10px_0px_#004d40]
           "
         >
           <motion.div
-            initial={{ scale: 0.95, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.4 }}
             className="w-full aspect-video bg-black rounded-lg overflow-hidden"
           >
             <iframe
               className="w-full h-full pixelated"
               src={`https://www.youtube.com/embed/${currentVideo.id}`}
               title={currentVideo.title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
           </motion.div>
 
-          {/* 🎵 Title ใต้ Video (แยกฟอนต์) */}
+          {/* 🎵 Title ใต้ Video (ขนาดเหมือน MusicVideo) */}
           <h2
             className={`
               mt-4
-              text-2xl
-              sm:text-xl
+              text-sm
+              sm:text-base
               text-[#004d40]
               tracking-wide
               ${
                 isThaiText(currentVideo.title)
-                  ? "font-kanit"
+                  ? "font-kanit sm:text-lg"
                   : "font-press"
               }
             `}
@@ -155,9 +169,6 @@ const Highlight = () => {
                 border-4
                 border-[#004d40]
                 shadow-[4px_4px_0px_#004d40]
-                hover:shadow-none
-                hover:translate-x-1
-                hover:translate-y-1
                 transition-all
                 text-left
               "
@@ -176,15 +187,16 @@ const Highlight = () => {
                 "
               />
 
-              {/* 🎧 Title list (แยกฟอนต์เหมือนกัน) */}
+              {/* 🎧 Title list (เท่ากับ MusicVideo) */}
               <span
                 className={`
                   text-xs
+                  sm:text-sm
                   text-[#004d40]
                   leading-snug
                   ${
                     isThaiText(video.title)
-                      ? "font-kanit"
+                      ? "font-kanit sm:text-base"
                       : "font-press"
                   }
                 `}
@@ -195,7 +207,7 @@ const Highlight = () => {
           ))}
         </motion.div>
       </div>
-    </motion.div>
+    </motion.section>
   );
 };
 
