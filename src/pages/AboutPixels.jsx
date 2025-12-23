@@ -160,7 +160,7 @@ const AboutPixels = () => {
             </p>
 
             <p className={fontByLang("กรุงเทพมหานคร")}>
-              • <b className="font-smallest-pixel">Province :</b> กรุงเทพมหานคร+1
+              • <b className="font-smallest-pixel">Province :</b> กรุงเทพมหานคร
             </p>
 
             <p className={fontByLang("แมว หนังระทึกขวัญ")}>
