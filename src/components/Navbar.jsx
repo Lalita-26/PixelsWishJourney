@@ -137,7 +137,7 @@ const Navbar = () => {
 
         {/* ================= MOBILE MENU ================= */}
         {mobileMenuOpen && (
-          <div className="sm:hidden mt-2 bg-mintGreen/60 rounded-md p-3 space-y-2 font-press">
+          <div className="text-sm sm:hidden mt-2 bg-mintGreen/60 rounded-md p-3 space-y-2 font-press">
             <a href="#home" className="block" onClick={() => setMobileMenuOpen(false)}>Home</a>
             <a href="#about" className="block" onClick={() => setMobileMenuOpen(false)}>About Pixels</a>
 

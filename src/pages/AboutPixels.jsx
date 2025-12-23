@@ -156,10 +156,10 @@ const AboutPixels = () => {
           {/* Info List */}
           <div className="mt-5 space-y-2 text-gray-700 text-base">
             <p className={fontByLang("Date of birth")}>
-              • <b>Date of birth :</b> 27 November
+              • <b>Date of birth :</b> 27 December
             </p>
 
-            <p className={fontByLang("กรุงเทพมหานคร")}>
+            <p className={fontByLang("กรุงเทพมหานคร +1")}>
               • <b className="font-smallest-pixel">Province :</b> กรุงเทพมหานคร
             </p>
 
