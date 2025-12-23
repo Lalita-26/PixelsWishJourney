@@ -117,16 +117,28 @@ const FollowPixels = () => {
             variants={containerVariant}
             className="space-y-6 text-[#004d40]"
           >
-
             <ul className="space-y-4 text-sm sm:text-base">
               {[
                 {
                   icon: <FaFacebookF size={20} />,
                   text: "Pixels Mirai Mirai「ピクセル」",
+                  url: "https://www.facebook.com/profile.php?id=61555954807055&locale=th_TH",
                 },
-                { icon: <FaInstagram size={20} />, text: "pixels.miraimirai" },
-                { icon: <FaXTwitter size={20} />, text: "@pixels_mirai" },
-                { icon: <FaTiktok size={20} />, text: "pixels.miraimirai" },
+                {
+                  icon: <FaInstagram size={20} />,
+                  text: "pixels.miraimirai",
+                  url: "https://www.instagram.com/pixels.miraimirai",
+                },
+                {
+                  icon: <FaXTwitter size={20} />,
+                  text: "@pixels_mirai",
+                  url: "https://twitter.com/pixels_mirai",
+                },
+                {
+                  icon: <FaTiktok size={20} />,
+                  text: "pixels.miraimirai",
+                  url: "https://www.tiktok.com/@pixels.miraimirai",
+                },
               ].map((item, index) => (
                 <motion.li
                   key={index}
@@ -134,7 +146,20 @@ const FollowPixels = () => {
                   className="flex items-center gap-4"
                 >
                   {item.icon}
-                  <span>{item.text}</span>
+
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+          hover:underline
+          hover:underline-offset-4
+          hover:text-[#00796b]
+          transition-colors
+        "
+                  >
+                    {item.text}
+                  </a>
                 </motion.li>
               ))}
             </ul>

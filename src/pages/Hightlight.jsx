@@ -55,7 +55,7 @@ const item = {
   visible: { opacity: 1, y: 0 },
 };
 
-const MusicVideo = () => {
+const Highlight = () => {
   const [currentVideo, setCurrentVideo] = useState(videos[0]);
 
   return (
@@ -71,8 +71,8 @@ const MusicVideo = () => {
         variants={item}
         className="
           font-press
-          text-2xl
           sm:text-4xl
+          text-2xl
           text-[#004d40]
           tracking-widest
           mb-8
@@ -81,7 +81,7 @@ const MusicVideo = () => {
           gap-4
         "
       >
-        Music Video
+        Hightlight
         <span className="flex-1 h-1 bg-[#004d40]/40"></span>
       </motion.h1>
 
@@ -115,17 +115,17 @@ const MusicVideo = () => {
             />
           </motion.div>
 
-          {/* 🎵 Title ใต้ Video */}
+          {/* 🎵 Title ใต้ Video (แยกฟอนต์) */}
           <h2
             className={`
               mt-4
-              text-sm
-              sm:text-base
+              text-2xl
+              sm:text-xl
               text-[#004d40]
               tracking-wide
               ${
                 isThaiText(currentVideo.title)
-                  ? "font-kanit sm:text-lg"
+                  ? "font-kanit"
                   : "font-press"
               }
             `}
@@ -176,16 +176,15 @@ const MusicVideo = () => {
                 "
               />
 
-              {/* 🎧 Title list */}
+              {/* 🎧 Title list (แยกฟอนต์เหมือนกัน) */}
               <span
                 className={`
                   text-xs
-                  sm:text-sm
                   text-[#004d40]
                   leading-snug
                   ${
                     isThaiText(video.title)
-                      ? "font-kanit sm:text-base"
+                      ? "font-kanit"
                       : "font-press"
                   }
                 `}
@@ -200,4 +199,4 @@ const MusicVideo = () => {
   );
 };
 
-export default MusicVideo;
+export default Highlight;
