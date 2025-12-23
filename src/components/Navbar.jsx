@@ -137,7 +137,7 @@ const Navbar = () => {
 
         {/* ================= MOBILE MENU ================= */}
         {mobileMenuOpen && (
-          <div className="text-sm sm:hidden mt-2 bg-mintGreen/60 rounded-md p-3 space-y-2 font-press">
+          <div className="text-xl sm:hidden mt-2 bg-mintGreen/60 rounded-md p-3 space-y-2 font-smallest-pixel">
             <a href="#home" className="block" onClick={() => setMobileMenuOpen(false)}>Home</a>
             <a href="#about" className="block" onClick={() => setMobileMenuOpen(false)}>About Pixels</a>
 
@@ -157,7 +157,7 @@ const Navbar = () => {
             </button>
 
             {mobileJourneyOpen && (
-              <div className="pl-4 space-y-1 text-sm">
+              <div className="pl-4 space-y-1 text-xl">
                 {journeyItems.map((item) => (
                   <a
                     key={item.id}
