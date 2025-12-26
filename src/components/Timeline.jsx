@@ -19,9 +19,9 @@ const dotColorMap = {
   amber: "bg-amber-400",
 };
 
-const Timeline = ({ data, color = "amber" }) => {
-  const textColor = colorMap[color] || colorMap.amber;
-  const accentColor = dotColorMap[color] || dotColorMap.amber;
+const Timeline = ({ data, color = "black" }) => {
+  const textColor = colorMap[color] || colorMap.black;
+  const accentColor = dotColorMap[color] || dotColorMap.black;
 
   return (
     <div className="relative max-w-5xl mx-auto py-16 px-4">

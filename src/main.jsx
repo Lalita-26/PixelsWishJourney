@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import BirthdayCard from "./pages/BirthdayCard.jsx";
 // import pages
 import App from "./App.jsx";
 import FirstPage from "./pages/FirstPage.jsx"; // ← หน้าใหม่
@@ -18,6 +18,7 @@ createRoot(document.getElementById("root")).render(
         {/* Other Pages */}
         {/* <Route path="/home" element={<Home />} /> */}
         <Route path="/home" element={<App />} />
+        <Route path="/wishes" element={<BirthdayCard />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

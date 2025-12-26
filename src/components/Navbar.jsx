@@ -17,7 +17,8 @@ const Navbar = () => {
   ];
 
   const baseBtn =
-    "px-3 py-2 text-2xl font-medium rounded-md transition-all duration-200";
+    "px-2.5 py-1.5 text-xl :text-lg font-medium rounded-md transition-all duration-200";
+
   const hoverBtn = "hover:bg-white/30 hover:shadow-md";
   const activeBtn = "bg-white/50 shadow-inner";
 
@@ -31,7 +32,20 @@ const Navbar = () => {
           </div>
 
           {/* ================= DESKTOP NAV ================= */}
-          <div className="font-smallest-pixel absolute left-1/2 -translate-x-1/2 hidden sm:flex space-x-4 items-center whitespace-nowrap">
+          <div className="
+  font-smallest-pixel
+  absolute
+  left-1/2
+  -translate-x-1/2
+  hidden
+  sm:flex
+  lg:space-x-5
+  xl:space-x-6
+  items-center
+  whitespace-nowrap
+  max-w-[calc(100%-280px)]
+">
+
             <a
               href="#home"
               onClick={() => setActiveMenu("home")}
@@ -51,6 +65,15 @@ const Navbar = () => {
             >
               About Pixels
             </a>
+            <a
+              href="#wish"
+              onClick={() => setActiveMenu("wish")}
+              className={`${baseBtn} ${hoverBtn} ${
+                activeMenu === "wish" ? activeBtn : ""
+              }`}
+            >
+              Wishes
+            </a>
 
             {/* Desktop Journey Dropdown */}
             <Menu as="div" className="relative">
@@ -58,7 +81,7 @@ const Navbar = () => {
                 <>
                   <Menu.Button
                     onClick={() => setActiveMenu("journey")}
-                    className={`${baseBtn} inline-flex items-center ${hoverBtn} ${
+                    className={`${baseBtn} min-w-fit inline-flex items-center ${hoverBtn} ${
                       activeMenu === "journey" ? activeBtn : ""
                     }`}
                   >
@@ -87,9 +110,7 @@ const Navbar = () => {
                               href={`#${item.id}`}
                               onClick={() => setActiveMenu(item.id)}
                               className={`block px-4 py-2 text-sm transition ${
-                                active
-                                  ? "bg-mintGreen/30"
-                                  : "hover:bg-gray-100"
+                                active ? "bg-mintGreen/30" : "hover:bg-gray-100"
                               }`}
                             >
                               {item.label}
@@ -138,8 +159,27 @@ const Navbar = () => {
         {/* ================= MOBILE MENU ================= */}
         {mobileMenuOpen && (
           <div className="text-xl sm:hidden mt-2 bg-mintGreen/60 rounded-md p-3 space-y-2 font-smallest-pixel">
-            <a href="#home" className="block" onClick={() => setMobileMenuOpen(false)}>Home</a>
-            <a href="#about" className="block" onClick={() => setMobileMenuOpen(false)}>About Pixels</a>
+            <a
+              href="#home"
+              className="block"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Home
+            </a>
+            <a
+              href="#wish"
+              className="block"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Wishes
+            </a>
+            <a
+              href="#about"
+              className="block"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              About Pixels
+            </a>
 
             {/* Mobile Journey Dropdown */}
             <button
@@ -174,8 +214,20 @@ const Navbar = () => {
               </div>
             )}
 
-            <a href="#stage" className="block" onClick={() => setMobileMenuOpen(false)}>Pixels on Stage</a>
-            <a href="#followpixels" className="block" onClick={() => setMobileMenuOpen(false)}>Follow Pixels</a>
+            <a
+              href="#stage"
+              className="block"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Pixels on Stage
+            </a>
+            <a
+              href="#followpixels"
+              className="block"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Follow Pixels
+            </a>
           </div>
         )}
       </div>
