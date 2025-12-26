@@ -9,6 +9,7 @@ import Highlight from "./pages/Hightlight";
 import AboutPixels from "./pages/AboutPixels";
 import FollowPixels from "./pages/FollowPixels";
 import CountdownBar from "./components/CountdownBar";
+import BirthdayCard from "./pages/BirthdayCard";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Navbar />
         <CountdownBar />
         <Banner />
+        <BirthdayCard/>
         <AboutPixels />
         <JourneyMap />
         <PixelsonStage />
