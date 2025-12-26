@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Timeline from "../components/Timeline";
+import { db } from "../firebase/config";
+import {
+  collection,
+  addDoc,
+  query,
+  orderBy,
+  onSnapshot,
+  serverTimestamp,
+} from "firebase/firestore";
 
-/* ===== Dress Images ===== */
+/* ===== Dress Images (เหมือนเดิม) ===== */
 import dress1st from "../assets/image-drees/1st ver.00.jpg";
 import dress1sOcta from "../assets/image-drees/1st ver.01.jpg";
 import dress2_90days from "../assets/image-drees/2nd ver.pink.jpg";
@@ -24,34 +33,54 @@ const BirthdayCard = () => {
   const [wishes, setWishes] = useState([]);
 
   /* ===============================
-     LOAD WISHES FROM URL (PRIMARY)
+     REALTIME LOAD FROM FIRESTORE
   =============================== */
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const data = params.get("data");
+    const q = query(
+      collection(db, "birthday-wishes"),
+      orderBy("createdAt", "desc")
+    );
 
-    if (data) {
-      try {
-        const decoded = JSON.parse(decodeURIComponent(data));
-        setWishes(decoded);
-      } catch (err) {
-        console.error("Invalid URL data");
-      }
-    }
+    const unsub = onSnapshot(q, (snapshot) => {
+      const data = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+        date: doc.data().createdAt
+          ? doc.data().createdAt.toDate().toLocaleString("th-TH")
+          : "",
+      }));
+      setWishes(data);
+    });
+
+    return () => unsub();
   }, []);
 
   /* ===============================
-     UPDATE URL WHEN WISHES CHANGE
+     SUBMIT WISH
   =============================== */
-  useEffect(() => {
-    if (wishes.length === 0) return;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!wish.trim()) return;
 
-    const encoded = encodeURIComponent(JSON.stringify(wishes));
-    window.history.replaceState(null, "", `?data=${encoded}`);
-  }, [wishes]);
+    try {
+      await addDoc(collection(db, "birthday-wishes"), {
+        wish: wish.trim(),
+        sender: anonymous ? "ไม่ระบุชื่อ" : sender.trim() || "ไม่ระบุชื่อ",
+        createdAt: serverTimestamp(),
+      });
+
+      setWish("");
+      setSender("");
+      setAnonymous(false);
+      setShowPopup(true);
+      setTimeout(() => setShowPopup(false), 2000);
+    } catch (err) {
+      console.error("Failed to send wish", err);
+    }
+  };
 
   /* ===============================
-     DRESS TIMELINE DATA
+     DRESS TIMELINE
   =============================== */
   const dressTimeline = [
     { year: "2024", title: "1st single costume ver.00", image: dress1st },
@@ -68,29 +97,6 @@ const BirthdayCard = () => {
     { year: "2025", title: "5th single costume ver.minute", image: dress5_minute },
   ];
 
-  /* ===============================
-     SUBMIT WISH
-  =============================== */
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!wish.trim()) return;
-
-    const newWish = {
-      wish: wish.trim(),
-      sender: anonymous ? "ไม่ระบุชื่อ" : sender.trim() || "ไม่ระบุชื่อ",
-      date: new Date().toLocaleString("th-TH"),
-    };
-
-    setWishes([newWish, ...wishes]);
-
-    setWish("");
-    setSender("");
-    setAnonymous(false);
-    setShowPopup(true);
-
-    setTimeout(() => setShowPopup(false), 2000);
-  };
-
   return (
     <>
       <link
@@ -101,21 +107,15 @@ const BirthdayCard = () => {
       <div className="min-h-screen bg-white px-4 py-10">
         <div className="mx-auto max-w-6xl flex flex-col md:flex-row gap-6">
 
-          {/* ================= CARD ================= */}
+          {/* CARD */}
           <div className="w-full md:w-[420px]">
             <div className="bg-[#dffff8] p-6 rounded-lg border-4 border-[#26bfa8]/50 shadow-xl">
 
-              <img
-                src="https://i.pinimg.com/originals/9c/1e/db/9c1edbef4d09afbf55fcd2be136b11df.gif"
-                alt="cake"
-                className="w-32 mx-auto mb-4"
-              />
-
-              <h1 className="text-center text-xs font-press text-[#004d40] mb-4">
+              <h1 className="text-center text-xs font-press mb-4">
                 MAY YOUR DAY BE FULL OF SMILES ♡
               </h1>
 
-              {/* ===== Tabs ===== */}
+              {/* TABS */}
               <div className="flex justify-center gap-2 mb-4">
                 {["wish", "wall", "dress"].map((tab) => (
                   <button
@@ -124,18 +124,16 @@ const BirthdayCard = () => {
                     className={`px-3 py-1 text-xs font-press border-2 rounded
                       ${
                         activeTab === tab
-                          ? "bg-pink-400 text-white border-pink-400"
-                          : "bg-white text-pink-400 border-pink-400"
+                          ? "bg-pink-400 text-white"
+                          : "bg-white text-pink-400"
                       }`}
                   >
-                    {tab === "wish" && "Wish"}
-                    {tab === "wall" && "Wishes"}
-                    {tab === "dress" && "Dress"}
+                    {tab}
                   </button>
                 ))}
               </div>
 
-              {/* ===== Wish Form ===== */}
+              {/* FORM */}
               {activeTab === "wish" && (
                 <form onSubmit={handleSubmit} className="space-y-3">
                   <input
@@ -164,36 +162,27 @@ const BirthdayCard = () => {
                     className="w-full p-2 text-xs border-2 rounded"
                   />
 
-                  <button
-                    type="submit"
-                    className="w-full bg-[#26bfa8] text-white py-2 rounded"
-                  >
+                  <button className="w-full bg-[#26bfa8] text-white py-2 rounded">
                     ส่งคำอวยพร
                   </button>
                 </form>
               )}
 
-              {/* ===== Wishes Wall ===== */}
+              {/* WALL */}
               {activeTab === "wall" && (
                 <div className="space-y-3 max-h-[300px] overflow-y-auto">
-                  {wishes.length === 0 ? (
-                    <p className="text-center text-xs text-gray-500">
-                      ยังไม่มีคำอวยพร 💭
-                    </p>
-                  ) : (
-                    wishes.map((w, i) => (
-                      <div
-                        key={`${w.date}-${i}`}
-                        className="bg-white border-2 border-pink-400 p-3 rounded text-xs"
-                      >
-                        <p>“{w.wish}”</p>
-                        <div className="flex justify-between text-[10px] text-gray-500">
-                          <span>— {w.sender}</span>
-                          <span>{w.date}</span>
-                        </div>
+                  {wishes.map((w) => (
+                    <div
+                      key={w.id}
+                      className="bg-white border-2 border-pink-400 p-3 rounded text-xs"
+                    >
+                      <p>“{w.wish}”</p>
+                      <div className="flex justify-between text-[10px] text-gray-500">
+                        <span>— {w.sender}</span>
+                        <span>{w.date}</span>
                       </div>
-                    ))
-                  )}
+                    </div>
+                  ))}
                 </div>
               )}
 
@@ -205,7 +194,6 @@ const BirthdayCard = () => {
             </div>
           </div>
 
-          {/* ================= TIMELINE ================= */}
           {activeTab === "dress" && (
             <div className="flex-1 bg-[#fff0f7] rounded-xl p-6 max-h-[80vh] overflow-y-auto">
               <Timeline data={dressTimeline} />
@@ -214,7 +202,6 @@ const BirthdayCard = () => {
         </div>
       </div>
 
-      {/* ===== Popup ===== */}
       {showPopup && (
         <div className="fixed inset-0 bg-black/30 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded border-4 border-pink-400">
