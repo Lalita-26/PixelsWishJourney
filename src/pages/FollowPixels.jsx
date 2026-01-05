@@ -6,7 +6,7 @@ import {
 } from "react-icons/fa6";
 import { motion } from "framer-motion";
 
-import idolImage from "../assets/image-about/10.jpg";
+import idolImage from "../assets/image-about/FollowPixels.jpg";
 
 const containerVariant = {
   hidden: { opacity: 0, y: 60 },
