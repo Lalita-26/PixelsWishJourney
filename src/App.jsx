@@ -10,6 +10,7 @@ import AboutPixels from "./pages/AboutPixels";
 import FollowPixels from "./pages/FollowPixels";
 import CountdownBar from "./components/CountdownBar";
 import BirthdayCard from "./pages/BirthdayCard";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <MusicVideo />
         <Highlight />
         <FollowPixels />
+        <Footer />
       </div>
     </>
   );
