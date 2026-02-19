@@ -128,7 +128,7 @@ function PixelsonStage() {
 
       {/* Filters */}
       <div className="flex flex-wrap justify-center items-center gap-3 mb-6">
-        {[2024, 2025].map((year) => (
+        {[2024, 2025,2026].map((year) => (
           <button
             key={year}
             onClick={() => setFilterYear(filterYear === year ? null : year)}
