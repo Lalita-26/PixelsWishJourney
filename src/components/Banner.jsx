@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import MyImage from "../assets/Backgroud day.jpg";
 
-const TARGET_DATE = new Date("2025-12-27T00:00:00");
+const TARGET_DATE = new Date("2026-12-27T00:00:00");
 
 /* ================= WORD + COLOR ================= */
 const words = [
