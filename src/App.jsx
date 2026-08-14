@@ -20,7 +20,6 @@ function App() {
         <Navbar />
         <CountdownBar />
         <Banner />
-        <BirthdayCard/>
         <AboutPixels />
         <JourneyMap />
         <PixelsonStage />

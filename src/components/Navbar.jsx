@@ -65,7 +65,7 @@ const Navbar = () => {
             >
               About Pixels
             </a>
-            <a
+            {/* <a
               href="#wish"
               onClick={() => setActiveMenu("wish")}
               className={`${baseBtn} ${hoverBtn} ${
@@ -73,7 +73,7 @@ const Navbar = () => {
               }`}
             >
               Wishes
-            </a>
+            </a> */}
 
             {/* Desktop Journey Dropdown */}
             <Menu as="div" className="relative">
