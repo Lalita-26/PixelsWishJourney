@@ -32,6 +32,11 @@ const videos = [
     title: "อยู่คนเดียวดีแล้ว - Mirai Mirai (Prod. by Jurassic.Pew)",
     thumbnail: "https://img.youtube.com/vi/iO1iuQB6gpI/hqdefault.jpg",
   },
+   {
+    id: "kZ9ePR27i2Y",
+    title: "นับถอยหลัง (Ryusei Cyclone) - Mirai Mirai",
+    thumbnail: "https://img.youtube.com/vi/kZ9ePR27i2Y/hqdefault.jpg",
+  },
 ];
 
 // 🔍 เช็คว่ามีภาษาไทยไหม
