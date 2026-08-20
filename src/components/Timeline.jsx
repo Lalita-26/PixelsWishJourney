@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 
-/* ---------- COLOR MAP ---------- */
+
 const colorMap = {
   purple: "text-purple-300",
   blue: "text-blue-300",
   pink: "text-pink-300",
   green: "text-green-300",
   amber: "text-amber-300",
-  white:"text-white",
-  black:"text-balck"
+  white: "text-white",
+  black: "text-black",
 };
 
 const dotColorMap = {
@@ -86,15 +86,14 @@ const Timeline = ({ data, color = "black" }) => {
                     w-full
                     max-w-[340px]
                     aspect-4/5
-                    overflow-hidden
                     rounded-xl
-                    shadow-lg
+                    shadow-[0_0_15px_rgba(255,255,255,0.85)]
                   "
                 >
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover rounded-xl"
                   />
                 </div>
               )}
