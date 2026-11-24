@@ -11,6 +11,7 @@ import FollowPixels from "./pages/FollowPixels";
 import CountdownBar from "./components/CountdownBar";
 import BirthdayCard from "./pages/BirthdayCard";
 import Footer from "./components/Footer";
+import Journal from "./pages/BookFlip";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <CountdownBar />
         <Banner />
         <AboutPixels />
+        <Journal/>
         <JourneyMap />
         <PixelsonStage />
         <MusicVideo />

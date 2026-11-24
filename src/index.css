@@ -46,3 +46,11 @@
 .pixelated {
   image-rendering: pixelated;
 }
+
+@layer utilities {
+  /* ซ่อนพื้นผิวด้านหลังวัตถุเมื่อถูกหมุน 3D */
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+}
