@@ -1,4 +1,3 @@
-
 import {
   FaFacebookF,
   FaInstagram,
@@ -60,7 +59,6 @@ const imageVariant = {
   },
 };
 
-
 /* =========================================================
    SOCIAL LINKS
 ========================================================= */
@@ -103,7 +101,6 @@ const SOCIAL_LINKS = [
   },
 ];
 
-
 /* =========================================================
    MAIN COMPONENT
 ========================================================= */
@@ -125,13 +122,11 @@ const FollowPixels = () => {
         lg:py-28
       "
     >
-
       {/* ===================================================
           BACKGROUND DECORATION
       =================================================== */}
 
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-
         {/* Soft Circle */}
 
         <div
@@ -169,8 +164,7 @@ const FollowPixels = () => {
             opacity-[0.12]
           "
           style={{
-            backgroundImage:
-              "radial-gradient(#07584e 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(#07584e 1px, transparent 1px)",
             backgroundSize: "28px 28px",
           }}
         />
@@ -187,16 +181,13 @@ const FollowPixels = () => {
           <span className="h-3 w-3 bg-[#79b9e8]" />
           <span className="h-3 w-3 bg-[#79b9e8]" />
         </div>
-
       </div>
-
 
       {/* ===================================================
           MAIN CONTAINER
       =================================================== */}
 
       <div className="relative mx-auto max-w-6xl">
-
         <motion.div
           variants={containerVariant}
           initial="hidden"
@@ -214,8 +205,6 @@ const FollowPixels = () => {
             lg:gap-16
           "
         >
-
-
           {/* =================================================
               LEFT : IMAGE PROFILE
           ================================================= */}
@@ -224,7 +213,6 @@ const FollowPixels = () => {
             variants={imageVariant}
             className="relative mx-auto w-full max-w-md"
           >
-
             {/* Main Image Frame */}
 
             <div
@@ -237,9 +225,7 @@ const FollowPixels = () => {
                 shadow-[0_25px_60px_rgba(7,88,78,0.12)]
               "
             >
-
               <div className="relative overflow-hidden rounded-[20px]">
-
                 <img
                   src={idolImage}
                   alt="Pixels Mirai Mirai"
@@ -279,33 +265,16 @@ const FollowPixels = () => {
                     text-white
                   "
                 >
-
-                  <p
-                    className="
-                      mb-2
-                      font-mono
-                      text-[10px]
-                      tracking-[0.25em]
-                      text-white/70
-                    "
-                  >
-                    PIXELS MIRAI MIRAI
-                  </p>
-
-                  <h2 className="text-2xl font-semibold tracking-wide">
+                  <h2 className="font-press text-xl font-semibold tracking-wide">
                     Hello, Pixels!
                   </h2>
 
-                  <p className="mt-2 text-sm text-white/80">
+                  <p className="font-smallest-pixel mt-2 text-sm text-white/80">
                     Welcome to my little world ♡
                   </p>
-
                 </div>
-
               </div>
-
             </div>
-
 
             {/* Floating Pixel Badge */}
 
@@ -333,15 +302,12 @@ const FollowPixels = () => {
                 backdrop-blur-md
               "
             >
-
               <span className="text-xl">✦</span>
 
               <span className="ml-2 font-mono text-xs font-bold text-[#07584e]">
                 STAY CONNECTED
               </span>
-
             </motion.div>
-
 
             {/* Small Decorative Pixel */}
 
@@ -357,33 +323,22 @@ const FollowPixels = () => {
                 />
               ))}
             </div>
-
           </motion.div>
-
 
           {/* =================================================
               RIGHT : SOCIAL LINKS
           ================================================= */}
 
-          <motion.div
-            variants={containerVariant}
-            className="w-full"
-          >
-
+          <motion.div variants={containerVariant} className="w-full">
             {/* Heading */}
 
-            <motion.div
-              variants={itemVariant}
-              className="mb-8"
-            >
-
+            <motion.div variants={itemVariant} className="mb-8">
               <div className="mb-5 flex items-center gap-3">
-
                 <span className="h-2 w-2 bg-[#40a997]" />
 
                 <p
                   className="
-                    font-mono
+                    font-smallest-pixel
                     text-xs
                     font-bold
                     tracking-[0.25em]
@@ -392,13 +347,12 @@ const FollowPixels = () => {
                 >
                   LET'S STAY CONNECTED
                 </p>
-
               </div>
-
 
               <h1
                 className="
-                  text-4xl
+                font-press
+                  text-xl
                   font-semibold
                   tracking-tight
                   text-[#07584e]
@@ -410,9 +364,9 @@ const FollowPixels = () => {
                 <span className="text-[#63bfae]">.</span>
               </h1>
 
-
               <p
                 className="
+                font-smallest-pixel
                   mt-5
                   max-w-lg
                   text-base
@@ -421,20 +375,15 @@ const FollowPixels = () => {
                   sm:text-lg
                 "
               >
-                Follow along and stay connected with Pixels.
-                Discover little moments, new adventures,
-                photos and everything in between.
+                Follow along and stay connected with Pixels. Discover little
+                moments, new adventures, photos and everything in between.
               </p>
-
             </motion.div>
-
 
             {/* Social Link List */}
 
             <div className="space-y-3">
-
               {SOCIAL_LINKS.map((item, index) => {
-
                 const Icon = item.icon;
 
                 return (
@@ -470,7 +419,6 @@ const FollowPixels = () => {
                       sm:p-5
                     "
                   >
-
                     {/* Icon */}
 
                     <div
@@ -491,13 +439,12 @@ const FollowPixels = () => {
                       <Icon size={21} />
                     </div>
 
-
                     {/* Text */}
 
                     <div className="min-w-0 flex-1">
-
                       <p
                         className="
+                          font-smallest-pixel
                           text-[10px]
                           font-bold
                           uppercase
@@ -526,9 +473,7 @@ const FollowPixels = () => {
                       <p className="mt-1 text-xs text-[#9aafa8]">
                         {item.description}
                       </p>
-
                     </div>
-
 
                     {/* External Link Arrow */}
 
@@ -552,29 +497,16 @@ const FollowPixels = () => {
                     >
                       <span className="text-lg">↗</span>
                     </div>
-
                   </motion.a>
                 );
-
               })}
-
             </div>
-
 
             {/* Footer Text */}
 
-            <motion.div
-              variants={itemVariant}
-              className="mt-8"
-            >
-
-
-            </motion.div>
-
+            <motion.div variants={itemVariant} className="mt-8"></motion.div>
           </motion.div>
-
         </motion.div>
-
 
         {/* =================================================
             BOTTOM BRANDING
@@ -602,12 +534,8 @@ const FollowPixels = () => {
             justify-center
             gap-3
           "
-        >
-
-        </motion.div>
-
+        ></motion.div>
       </div>
-
     </section>
   );
 };

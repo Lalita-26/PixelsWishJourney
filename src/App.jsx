@@ -9,9 +9,11 @@ import Highlight from "./pages/Hightlight";
 import AboutPixels from "./pages/AboutPixels";
 import FollowPixels from "./pages/FollowPixels";
 import CountdownBar from "./components/CountdownBar";
-import BirthdayCard from "./pages/BirthdayCard";
+// import BirthdayCard from "./pages/BirthdayCard";
 import Footer from "./components/Footer";
 import Journal from "./pages/BookFlip";
+import PixelsGiftCatcher from "./components/PixelsGiftCatcher";
+import ChristmasAdventureCard from "./components/ChristmasAdventureCard";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <CountdownBar />
         <Banner />
         <AboutPixels />
+        <PixelsGiftCatcher />
+        <ChristmasAdventureCard />
         <Journal/>
         <JourneyMap />
         <PixelsonStage />

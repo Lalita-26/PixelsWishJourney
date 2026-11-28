@@ -1,11 +1,10 @@
-
 import Logo from "../assets/Pixels-wishjourney-logo.png";
 
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import { Link } from "react-router-dom";
 
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-
 
 /* =========================================================
    NAVIGATION DATA
@@ -26,7 +25,6 @@ const navItems = [
   { label: "Pixels on Stage", id: "stage" },
   { label: "Follow Pixels", id: "followpixels" },
 ];
-
 
 /* =========================================================
    NAVIGATION STYLE
@@ -66,23 +64,18 @@ const activeBtn = `
   ring-white/80
 `;
 
-
 /* =========================================================
    NAVBAR COMPONENT
 ========================================================= */
 
 const Navbar = () => {
-
   /* =======================================================
      STATES
   ======================================================= */
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   const [mobileJourneyOpen, setMobileJourneyOpen] = useState(false);
-
   const [activeMenu, setActiveMenu] = useState("home");
-
 
   /* =======================================================
      HELPERS
@@ -90,9 +83,7 @@ const Navbar = () => {
 
   const isJourneyActive =
     activeMenu === "journey" ||
-    journeyItems.some(
-      (item) => item.id === activeMenu
-    );
+    journeyItems.some((item) => item.id === activeMenu);
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
@@ -104,13 +95,11 @@ const Navbar = () => {
     closeMobileMenu();
   };
 
-
   /* =======================================================
      RENDER
   ======================================================= */
 
   return (
-
     <nav
       className="
         sticky
@@ -124,7 +113,6 @@ const Navbar = () => {
         backdrop-blur-xl
       "
     >
-
       {/* ===================================================
           MAIN NAV CONTAINER
       =================================================== */}
@@ -144,7 +132,6 @@ const Navbar = () => {
           lg:px-8
         "
       >
-
         {/* =================================================
             LOGO
         ================================================= */}
@@ -166,7 +153,6 @@ const Navbar = () => {
             active:scale-95
           "
         >
-
           <img
             src={Logo}
             alt="Pixels Wish Journey"
@@ -183,9 +169,7 @@ const Navbar = () => {
               lg:max-w-[230px]
             "
           />
-
         </a>
-
 
         {/* =================================================
             DESKTOP NAVIGATION
@@ -194,7 +178,7 @@ const Navbar = () => {
         <div
           className="
             hidden
-            lg:flex
+            xl:flex
             flex-1
             items-center
             justify-center
@@ -202,11 +186,9 @@ const Navbar = () => {
             xl:gap-2
           "
         >
-
           {/* MAIN LINKS */}
 
           {navItems.slice(0, 3).map((item) => (
-
             <a
               key={item.id}
               href={`#${item.id}`}
@@ -224,20 +206,15 @@ const Navbar = () => {
             >
               {item.label}
             </a>
-
           ))}
-
 
           {/* =================================================
               JOURNEY DROPDOWN
           ================================================= */}
 
           <Menu as="div" className="relative">
-
             {({ open }) => (
-
               <>
-
                 <Menu.Button
                   onClick={() => setActiveMenu("journey")}
                   className={`
@@ -251,7 +228,6 @@ const Navbar = () => {
                     font-smallest-pixel
                   `}
                 >
-
                   Journey Map
 
                   <ChevronDownIcon
@@ -267,9 +243,7 @@ const Navbar = () => {
                       }
                     `}
                   />
-
                 </Menu.Button>
-
 
                 {/* DROPDOWN */}
 
@@ -282,7 +256,6 @@ const Navbar = () => {
                   leaveFrom="opacity-100 scale-100 translate-y-0"
                   leaveTo="opacity-0 scale-95 translate-y-2"
                 >
-
                   <Menu.Items
                     className="
                       absolute
@@ -302,7 +275,6 @@ const Navbar = () => {
                       outline-none
                     "
                   >
-
                     {/* DROPDOWN HEADER */}
 
                     <div
@@ -313,7 +285,6 @@ const Navbar = () => {
                         py-3
                       "
                     >
-
                       <p
                         className="
                           font-mono
@@ -336,20 +307,14 @@ const Navbar = () => {
                       >
                         Little Stories ♡
                       </p>
-
                     </div>
-
 
                     {/* JOURNEY ITEMS */}
 
                     <div className="mt-2 space-y-1">
-
                       {journeyItems.map((item, index) => (
-
                         <Menu.Item key={item.id}>
-
                           {({ active }) => (
-
                             <a
                               href={`#${item.id}`}
                               onClick={() => setActiveMenu(item.id)}
@@ -371,7 +336,6 @@ const Navbar = () => {
                                 }
                               `}
                             >
-
                               <span
                                 className="
                                   flex
@@ -391,39 +355,33 @@ const Navbar = () => {
                                 0{index + 1}
                               </span>
 
-                              <span>
-                                {item.label}
-                              </span>
+                              <span>{item.label}</span>
 
                               <span className="ml-auto text-[#8dc8b7]">
                                 ↗
                               </span>
-
                             </a>
-
                           )}
-
                         </Menu.Item>
-
                       ))}
-
                     </div>
-
                   </Menu.Items>
-
                 </Transition>
-
               </>
-
             )}
-
           </Menu>
 
+          <Link
+            to="/game"
+            onClick={() => handleNavigation("game")}
+            className={`${baseBtn} ${hoverBtn} font-smallest-pixel`}
+          >
+            Christmas Game
+          </Link>
 
-          {/* REMAINING LINKS */}
+          {/* REMAINING DESKTOP LINKS */}
 
           {navItems.slice(3).map((item) => (
-
             <a
               key={item.id}
               href={`#${item.id}`}
@@ -441,11 +399,8 @@ const Navbar = () => {
             >
               {item.label}
             </a>
-
           ))}
-
         </div>
-
 
         {/* =================================================
             RIGHT DECORATION
@@ -457,10 +412,9 @@ const Navbar = () => {
             shrink-0
             items-center
             gap-2
-            xl:flex
+            2xl:flex
           "
         >
-
           <span className="h-1.5 w-1.5 bg-[#50ae98]" />
 
           <span
@@ -474,9 +428,7 @@ const Navbar = () => {
           >
             PIXELS WORLD
           </span>
-
         </div>
-
 
         {/* =================================================
             MOBILE MENU BUTTON
@@ -484,9 +436,7 @@ const Navbar = () => {
 
         <button
           type="button"
-          onClick={() =>
-            setMobileMenuOpen(!mobileMenuOpen)
-          }
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={
             mobileMenuOpen
               ? "Close navigation menu"
@@ -510,18 +460,14 @@ const Navbar = () => {
             hover:bg-white
             hover:shadow-sm
             active:scale-90
-            lg:hidden
+            xl:hidden
           "
         >
-
           <span className="text-2xl leading-none">
             {mobileMenuOpen ? "×" : "☰"}
           </span>
-
         </button>
-
       </div>
-
 
       {/* =====================================================
           MOBILE NAVIGATION PANEL
@@ -537,7 +483,6 @@ const Navbar = () => {
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 -translate-y-2"
       >
-
         <div
           id="mobile-navigation"
           className="
@@ -549,16 +494,19 @@ const Navbar = () => {
             pt-3
             shadow-[0_12px_25px_rgba(7,88,78,0.07)]
             backdrop-blur-xl
-            lg:hidden
+            xl:hidden
           "
         >
-
           <div className="mx-auto max-w-2xl space-y-1">
 
-            {/* MOBILE MAIN LINKS */}
+            {/* =================================================
+                MOBILE MAIN LINKS
+                1. Home
+                2. Wishes
+                3. About Pixels
+            ================================================= */}
 
-            {navItems.map((item) => (
-
+            {navItems.slice(0, 3).map((item) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
@@ -580,7 +528,6 @@ const Navbar = () => {
                   }
                 `}
               >
-
                 <span className="font-smallest-pixel">
                   {item.label}
                 </span>
@@ -590,18 +537,15 @@ const Navbar = () => {
                     ✦
                   </span>
                 )}
-
               </a>
-
             ))}
-
 
             {/* =================================================
                 MOBILE JOURNEY DROPDOWN
+                4. Journey Map
             ================================================= */}
 
             <div className="overflow-hidden rounded-xl">
-
               <button
                 type="button"
                 onClick={() =>
@@ -626,7 +570,6 @@ const Navbar = () => {
                   }
                 `}
               >
-
                 <span className="font-smallest-pixel">
                   Journey Map
                 </span>
@@ -644,9 +587,7 @@ const Navbar = () => {
                     }
                   `}
                 />
-
               </button>
-
 
               {/* MOBILE JOURNEY ITEMS */}
 
@@ -659,7 +600,6 @@ const Navbar = () => {
                 leaveFrom="opacity-100 translate-y-0"
                 leaveTo="opacity-0 -translate-y-2"
               >
-
                 <div
                   className="
                     ml-3
@@ -671,9 +611,7 @@ const Navbar = () => {
                     pl-3
                   "
                 >
-
                   {journeyItems.map((item, index) => (
-
                     <a
                       key={item.id}
                       href={`#${item.id}`}
@@ -696,25 +634,69 @@ const Navbar = () => {
                         hover:text-[#07584e]
                       "
                     >
-
                       <span className="font-mono text-[10px] text-[#65b39e]">
                         0{index + 1}
                       </span>
 
                       {item.label}
-
                     </a>
-
                   ))}
-
                 </div>
-
               </Transition>
-
             </div>
 
+            {/* =================================================
+                REMAINING MOBILE LINKS
+                5. Pixels on Stage
+                6. Follow Pixels
+            ================================================= */}
 
-            {/* MOBILE FOOTER */}
+            {navItems.slice(3).map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={() => handleNavigation(item.id)}
+                className={`
+                  flex
+                  items-center
+                  justify-between
+                  rounded-xl
+                  px-4
+                  py-3.5
+                  text-sm
+                  transition-all
+                  duration-200
+                  ${
+                    activeMenu === item.id
+                      ? "bg-white/85 font-semibold text-[#07584e] shadow-sm"
+                      : "text-[#376f63] hover:bg-white/50"
+                  }
+                `}
+              >
+                <span className="font-smallest-pixel">
+                  {item.label}
+                </span>
+
+                {activeMenu === item.id && (
+                  <span className="text-xs text-[#60b59e]">
+                    ✦
+                  </span>
+                )}
+              </a>
+            ))}
+
+            <Link
+              to="/game"
+              onClick={() => handleNavigation("game")}
+              className="flex items-center justify-between rounded-xl px-4 py-3.5 text-sm text-[#376f63] hover:bg-white/50"
+            >
+              <span className="font-smallest-pixel">Christmas Game</span>
+              <span aria-hidden="true">↗</span>
+            </Link>
+
+            {/* =================================================
+                MOBILE FOOTER
+            ================================================= */}
 
             <div
               className="
@@ -728,7 +710,6 @@ const Navbar = () => {
                 pt-4
               "
             >
-
               <span className="h-1.5 w-1.5 bg-[#50ae98]" />
 
               <p
@@ -743,15 +724,11 @@ const Navbar = () => {
               </p>
 
               <span className="h-1.5 w-1.5 bg-[#50ae98]" />
-
             </div>
 
           </div>
-
         </div>
-
       </Transition>
-
     </nav>
   );
 };
