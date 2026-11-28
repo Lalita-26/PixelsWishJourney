@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { CHAPTERS, ITEMS } from './chapters.js';
 import { initialStory, interact, loadStory, saveStory } from './story.js';
 import { useRoom } from './useRoom.js';
+import { useRoomMusic } from './useRoomMusic.js';
 import treasureImage from './assets/treasure.png';
 import './game.css';
 
@@ -29,6 +30,7 @@ export default function PixelsGame() {
   const [paused,setPaused]=useState(false);
   const [name,setName]=useState('Pixels');
   const chapter=CHAPTERS[story.chapter];
+  const music=useRoomMusic({chapter:story.chapter,active,paused});
   const commit=(next)=>{setStory(next);saveStory(next);setSaved(next);};
   function choose(id,answer) {
     const result=interact(story,id,answer);
@@ -41,7 +43,7 @@ export default function PixelsGame() {
       setDialogue(null);
       if(dialogue.ending)setActive(false);
     }else if(bag)setBag(false);
-    else if(paused)setPaused(false);
+    else if(paused){music.start(story.chapter);setPaused(false);}
   }
   function examine(){
     if(dialogue||bag||paused||!active)return;
@@ -51,6 +53,7 @@ export default function PixelsGame() {
   }
   const room=useRoom({rootRef,story,active,blocked:!!dialogue||bag||paused,onInteract:examine,onClose:close});
   function begin(next) {
+    music.start(next.chapter);
     setName(name.trim()||'Pixels');commit(next);setDialogue(null);setBag(false);setPaused(false);setActive(true);rootRef.current?.focus();
   }
   return <section className="pgt" ref={rootRef} tabIndex={-1}>
@@ -58,7 +61,12 @@ export default function PixelsGame() {
     <div className="pgt-shell">
       <div className="pgt-status">
         <div><small>CHAPTER {String(story.chapter+1).padStart(2,'0')} / 05</small><strong>{chapter.title}</strong></div>
-        {active&&<div className="pgt-toolbar"><button onClick={()=>setBag(v=>!v)}>กระเป๋า ({story.inventory.length})</button><button onClick={()=>setPaused(true)}>พัก</button></div>}
+        <div className="pgt-toolbar">
+          <button type="button" onClick={music.toggle} aria-pressed={music.enabled && !music.blocked} title={music.blocked?'แตะเพื่อลองเล่นเพลงอีกครั้ง':'เปิดหรือปิดเพลงประกอบ'}>
+            {music.enabled && !music.blocked ? '♫ ปิดเสียง' : '♪ เปิดเสียง'}
+          </button>
+          {active&&<><button onClick={()=>setBag(v=>!v)}>กระเป๋า ({story.inventory.length})</button><button onClick={()=>setPaused(true)}>พัก</button></>}
+        </div>
       </div>
       <div className="pgt-stage">
         <canvas ref={room.canvasRef} width="640" height="480" aria-label="ห้องผจญภัยของ Pixels"/>
